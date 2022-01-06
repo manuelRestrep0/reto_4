@@ -1,18 +1,33 @@
 
 package com.mycompany.reto_4_juanmanuelrestrepo;
 public class RegistroVehiculos {
+    
     public int id;
-
-    public RegistroVehiculos(int id) {
-        this.id = id;
-    }
     private String Placa;
     private String Descripcion_Vehiculo;
     private String Tipo_Vehiculo;
     private String Modelo;
-    private int AnioModelo;
+    private float AnioModelo;
     private float PrecioHora;
+    
+    public RegistroVehiculos() {
+    }
 
+    public RegistroVehiculos(int id) {
+        this.id = id;
+    }
+
+    public RegistroVehiculos(int id, String Placa, String Descripcion_Vehiculo, String Tipo_Vehiculo, String Modelo, float AnioModelo, float PrecioHora, String EstadoVehiculo) {
+        this.id = id;
+        this.Placa = Placa;
+        this.Descripcion_Vehiculo = Descripcion_Vehiculo;
+        this.Tipo_Vehiculo = Tipo_Vehiculo;
+        this.Modelo = Modelo;
+        this.AnioModelo = AnioModelo;
+        this.PrecioHora = PrecioHora;
+        this.EstadoVehiculo = EstadoVehiculo;
+    }
+    
     public String getEstadoVehiculo() {
         return EstadoVehiculo;
     }
@@ -25,21 +40,6 @@ public class RegistroVehiculos {
         this.id = id;
     }
     private String EstadoVehiculo;
-
-    public RegistroVehiculos() {
-    }
-
-    public RegistroVehiculos(int id, String Placa, String Descripcion_Vehiculo, String Tipo_Vehiculo, String Modelo, int AnioModelo, float PrecioHora, String EstadoVehiculo) {
-        this.id = id;
-        this.Placa = Placa;
-        this.Descripcion_Vehiculo = Descripcion_Vehiculo;
-        this.Tipo_Vehiculo = Tipo_Vehiculo;
-        this.Modelo = Modelo;
-        this.AnioModelo = AnioModelo;
-        this.PrecioHora = PrecioHora;
-        this.EstadoVehiculo = EstadoVehiculo;
-    }
-    
 
     public String getPlaca() {
         return Placa;
@@ -73,11 +73,11 @@ public class RegistroVehiculos {
         this.Modelo = Modelo;
     }
 
-    public int getAnioModelo() {
+    public float getAnioModelo() {
         return AnioModelo;
     }
 
-    public void setAnioModelo(int año_Modelo) {
+    public void setAnioModelo(float año_Modelo) {
         this.AnioModelo = año_Modelo;
     }
 
