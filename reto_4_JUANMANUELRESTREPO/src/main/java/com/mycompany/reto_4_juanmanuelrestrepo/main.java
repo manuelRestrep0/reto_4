@@ -9,6 +9,7 @@ public class main {
         */
         boolean ejecucion = true;
         RegistroVehiculos[] Autos = new RegistroVehiculos[20];
+        Alquiler[] Alquileres = new Alquiler[20];
         while(ejecucion)
         {
             int opcion;
@@ -18,13 +19,18 @@ public class main {
             switch(opcion){
                 case 1:
                 {
+                    /*
+                    NOTA: crear menu para visualizar los vehiculos.
+                    */
                     int i=0;
                     boolean RegistroAux=true;
                     while(RegistroAux)
                     {
                         if(Autos[i]==null)
                         {
-                            
+                            /*
+                            NOTA: preguntar si aplica placa.
+                            */
                             Autos[i] = new RegistroVehiculos();
                             Autos[i].setId(i+1);
                             System.out.println("Ingrese el tipo de vehiculo (Auto, Moto, Camion, etc):");
@@ -51,17 +57,47 @@ public class main {
                 }
                 case 2:
                 {
-                    /*
-                    Alquiler de autos
-                    */
+                    int i = 0;
+                    boolean RegistroAux = true;
+                    while(RegistroAux)
+                    {
+                        if(Autos[0] == null)
+                        {
+                            String[] Aux;
+                            Alquileres[i] = new Alquiler();
+                            System.out.println("Introduzca su tipo de documento y el numero separados por una ','(ejemplo:cc,111)");
+                            Aux = InputString().split(",");
+                            Alquileres[i].setTipoDocumento(Aux[0]);
+                            Alquileres[i].setNumeroDocumento(Aux[1]);
+                            System.out.println(Alquileres[i].getNumeroDocumento());
+                            System.out.println(Alquileres[i].getTipoDocumento());
+                            System.out.println("Introduzca su nombre completo");
+                            Alquileres[i].setNombreCompleto(InputString());
+                            System.out.println("Fecha de inicio (DD/MM/AA)");
+                            Alquileres[i].setFechaInicio(InputString());
+                            System.out.println("Fecha Final (DD/MM/AA)");
+                            Alquileres[i].setFechaFinal(InputString());
+                            /*
+                            Para hacer: pedir el vehiculo que se va a alquilar para obtener el precio x hora,
+                            luego convertir las fechas y calcular las horas entre estas para setear el valor a pagar.
+                            
+                            El vehiculo a elegir debe ubicarse antes de todo el codigo anterior.
+                            */
+                            
+                            RegistroAux = false;
+                            
+                            
+                            
+                            
+                        }
+                    }
+                    
                 }
                 case 3:
                 {
-                    /*
-                    Seguros
-                    */  
+                    
                 }
-                default:
+                case 0:
                 {
                     ejecucion = false;
                 }

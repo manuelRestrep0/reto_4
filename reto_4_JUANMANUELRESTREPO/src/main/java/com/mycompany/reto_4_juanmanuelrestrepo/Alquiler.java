@@ -1,41 +1,14 @@
 package com.mycompany.reto_4_juanmanuelrestrepo;
 public class Alquiler extends RegistroVehiculos {
     private String tipoDocumento;
-    private double NumeroDocumento;
+    private String NumeroDocumento;
     private String NombreCompleto;
     String FechaInicio;
     String FechaFinal; //pensar en mejor forma para realizar las fechas.
     double ValorPagar;
     private String DescripcionUso;
 
-    public Alquiler(String FechaInicio, String FechaFinal, int id) {
-        super(id);
-        this.FechaInicio = FechaInicio;
-        this.FechaFinal = FechaFinal;
-    }
-
     public Alquiler() {
-    }
-
-    public Alquiler(String tipoDocumento, double NumeroDocumento, String NombreCompleto, String FechaInicio, String FechaFinal, double ValorPagar, String DescripcionUso, int id) {
-        super(id);
-        this.tipoDocumento = tipoDocumento;
-        this.NumeroDocumento = NumeroDocumento;
-        this.NombreCompleto = NombreCompleto;
-        this.FechaInicio = FechaInicio;
-        this.FechaFinal = FechaFinal;
-        this.ValorPagar = ValorPagar;
-        this.DescripcionUso = DescripcionUso;
-    }
-
-    public Alquiler(String tipoDocumento, double NumeroDocumento, String NombreCompleto, String FechaInicio, String FechaFinal, double ValorPagar, String DescripcionUso) {
-        this.tipoDocumento = tipoDocumento;
-        this.NumeroDocumento = NumeroDocumento;
-        this.NombreCompleto = NombreCompleto;
-        this.FechaInicio = FechaInicio;
-        this.FechaFinal = FechaFinal;
-        this.ValorPagar = ValorPagar;
-        this.DescripcionUso = DescripcionUso;
     }
 
     public String getTipoDocumento() {
@@ -46,11 +19,11 @@ public class Alquiler extends RegistroVehiculos {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public double getNumeroDocumento() {
+    public String getNumeroDocumento() {
         return NumeroDocumento;
     }
 
-    public void setNumeroDocumento(double NumeroDocumento) {
+    public void setNumeroDocumento(String NumeroDocumento) {
         this.NumeroDocumento = NumeroDocumento;
     }
 
@@ -62,16 +35,16 @@ public class Alquiler extends RegistroVehiculos {
         this.NombreCompleto = NombreCompleto;
     }
 
-    public String getDescripcionUso() {
-        return DescripcionUso;
-    }
-
-    public void setDescripcionUso(String DescripcionUso) {
-        this.DescripcionUso = DescripcionUso;
+    public String getFechaInicio() {
+        return FechaInicio;
     }
 
     public void setFechaInicio(String FechaInicio) {
         this.FechaInicio = FechaInicio;
+    }
+
+    public String getFechaFinal() {
+        return FechaFinal;
     }
 
     public void setFechaFinal(String FechaFinal) {
@@ -81,6 +54,28 @@ public class Alquiler extends RegistroVehiculos {
     public double getValorPagar() {
         return ValorPagar;
     }
+
+    public void setValorPagar(double ValorPagar) {
+        this.ValorPagar = ValorPagar;
+    }
+
+    public String getDescripcionUso() {
+        return DescripcionUso;
+    }
+
+    public void setDescripcionUso(String DescripcionUso) {
+        this.DescripcionUso = DescripcionUso;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    
+
 }

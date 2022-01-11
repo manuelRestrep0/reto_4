@@ -6,11 +6,6 @@ public class Seguro extends Alquiler {
     public Seguro() {
     }
 
-    public Seguro(String Empresa, String DescripcionSeguro, String FechaInicio, String FechaFinal, int id) {
-        super(FechaInicio, FechaFinal, id);
-        this.Empresa = Empresa;
-        this.DescripcionSeguro = DescripcionSeguro;
-    }
     public String getEmpresa() {
         return Empresa;
     }
@@ -27,6 +22,35 @@ public class Seguro extends Alquiler {
         this.DescripcionSeguro = DescripcionSeguro;
     }
 
+    @Override
+    public String getFechaInicio() {
+        return FechaInicio;
+    }
+
+    @Override
+    public void setFechaInicio(String FechaInicio) {
+        this.FechaInicio = FechaInicio;
+    }
+
+    @Override
+    public String getFechaFinal() {
+        return FechaFinal;
+    }
+
+    @Override
+    public void setFechaFinal(String FechaFinal) {
+        this.FechaFinal = FechaFinal;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    
+
 }
