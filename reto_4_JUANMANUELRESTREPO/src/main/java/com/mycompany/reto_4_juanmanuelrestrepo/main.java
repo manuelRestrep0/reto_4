@@ -10,6 +10,7 @@ public class main {
         boolean ejecucion = true;
         RegistroVehiculos[] Autos = new RegistroVehiculos[20];
         Alquiler[] Alquileres = new Alquiler[20];
+        Seguro[] Seguros = new Seguro[20];
         while(ejecucion)
         {
             int opcion;
@@ -57,18 +58,22 @@ public class main {
                 }
                 case 2:
                 {
+                    int EleccionVehiculo = ElegirVehiculo(Autos);
                     int i = 0;
                     boolean RegistroAux = true;
                     while(RegistroAux)
                     {
-                        if(Autos[0] == null)
+                        if(Autos != null)
                         {
                             String[] Aux;
                             Alquileres[i] = new Alquiler();
                             System.out.println("Introduzca su tipo de documento y el numero separados por una ','(ejemplo:cc,111)");
                             Aux = InputString().split(",");
-                            Alquileres[i].setTipoDocumento(Aux[0]);
-                            Alquileres[i].setNumeroDocumento(Aux[1]);
+                            if(Aux.length==2)
+                            {
+                                Alquileres[i].setTipoDocumento(Aux[0]);
+                                Alquileres[i].setNumeroDocumento(Aux[1]);
+                            }
                             System.out.println(Alquileres[i].getNumeroDocumento());
                             System.out.println(Alquileres[i].getTipoDocumento());
                             System.out.println("Introduzca su nombre completo");
@@ -77,6 +82,7 @@ public class main {
                             Alquileres[i].setFechaInicio(InputString());
                             System.out.println("Fecha Final (DD/MM/AA)");
                             Alquileres[i].setFechaFinal(InputString());
+                            
                             /*
                             Para hacer: pedir el vehiculo que se va a alquilar para obtener el precio x hora,
                             luego convertir las fechas y calcular las horas entre estas para setear el valor a pagar.
@@ -95,7 +101,21 @@ public class main {
                 }
                 case 3:
                 {
-                    
+                    int i = 0;
+                    boolean RegistroAux = true;
+                    while(RegistroAux)
+                    {
+                        if(Alquileres[i]!=null)
+                        {
+                            Seguros[i] = new Seguro();
+                            System.out.println("Introduzca el nombre de la empresa");
+                            Seguros[i].setEmpresa(InputString());
+                            System.out.println("Introduzca una descripcion del seguro");
+                            Seguros[i].setDescripcionSeguro(InputString());
+                            i++;
+                            RegistroAux = false;
+                        }
+                    }
                 }
                 case 0:
                 {
@@ -120,5 +140,27 @@ public class main {
         Scanner input = new Scanner(System.in);
         inputAux = input.nextFloat();
         return inputAux;     
+    }
+    static int ElegirVehiculo(RegistroVehiculos[] Vehiculos)
+    {
+        int i=0;
+        while(Vehiculos[i]!=null)
+        {
+            System.out.println(Vehiculos[i].getId());
+            System.out.println(Vehiculos[i].getTipo_Vehiculo());
+            System.out.print(Vehiculos[i].getModelo());
+            System.out.println(" "+Vehiculos[i].getAnioModelo());
+            System.out.println(Vehiculos[i].getEstadoVehiculo());
+            System.out.println(Vehiculos[i].getDescripcion_Vehiculo());
+            System.out.println("Desea elegir este vehiculo? (1-si / 0-no)");
+            Scanner input = new Scanner(System.in);
+            int eleccion = input.nextInt();
+            if(eleccion == 1)
+            {
+                return Vehiculos[i].getId();
+            }
+            i++;
+        }
+    return 0;  
     }
 }
