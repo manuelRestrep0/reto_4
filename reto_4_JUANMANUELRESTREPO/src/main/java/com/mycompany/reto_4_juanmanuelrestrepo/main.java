@@ -15,7 +15,7 @@ public class main {
         while(ejecucion)
         {
             int opcion;
-            System.out.println("Digite una opcion:\n 1)Registro de autos.\n 2)Alquiler de autos.\n 3)Contratación de seguros.\n 0)Salir.");
+            System.out.println("Digite una opcion:\n 1)Elegir Vehiculo.\n 2)Alquiler de Vehiculo.\n 3)Contratación de seguros.\n 0)Salir.");
             Scanner input = new Scanner(System.in);
             opcion = input.nextInt();
             switch(opcion){
