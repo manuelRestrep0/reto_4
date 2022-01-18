@@ -1,4 +1,8 @@
 package com.mycompany.reto_4_juanmanuelrestrepo;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 public class Alquiler extends RegistroVehiculos {
     private String tipoDocumento;
     private String NumeroDocumento;
@@ -6,6 +10,7 @@ public class Alquiler extends RegistroVehiculos {
     String FechaInicio;
     String FechaFinal; //pensar en mejor forma para realizar las fechas.
     double ValorPagar;
+    long Horas;
     private String DescripcionUso;
 
     public Alquiler() {
@@ -25,6 +30,10 @@ public class Alquiler extends RegistroVehiculos {
 
     public void setNumeroDocumento(String NumeroDocumento) {
         this.NumeroDocumento = NumeroDocumento;
+    }
+
+    public long getHoras() {
+        return Horas;
     }
 
     public String getNombreCompleto() {
@@ -77,5 +86,18 @@ public class Alquiler extends RegistroVehiculos {
         this.id = id;
     }
     
-
+    public void HorasAlquiler(String FechaInicial, String FechaFinal)
+    {
+        String[] FechaAux = FechaInicial.split("/");
+        Calendar Fecha1 = Calendar.getInstance();
+        Fecha1.set(Integer.parseInt(FechaAux[0]),Integer.parseInt(FechaAux[1])-1,Integer.parseInt(FechaAux[2]));
+        FechaAux = FechaFinal.split("/");
+        Calendar Fecha2 = Calendar.getInstance();
+        Fecha2.set(Integer.parseInt(FechaAux[0]),Integer.parseInt(FechaAux[1])-1,Integer.parseInt(FechaAux[2]));
+        Date Hora1 = Fecha1.getTime();
+        Date Hora2 = Fecha2.getTime();
+        long miliseg = Math.abs(Hora1.getTime() - Hora2.getTime());
+        long HorasAux = TimeUnit.MILLISECONDS.toHours(miliseg);
+        this.Horas = HorasAux;
+    }
 }

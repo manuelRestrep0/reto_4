@@ -78,11 +78,13 @@ public class main {
                             System.out.println(Alquileres[i].getTipoDocumento());
                             System.out.println("Introduzca su nombre completo");
                             Alquileres[i].setNombreCompleto(InputString());
-                            System.out.println("Fecha de inicio (DD/MM/AA)");
+                            System.out.println("Fecha de inicio (AAAA/MM/DD)");
                             Alquileres[i].setFechaInicio(InputString());
-                            System.out.println("Fecha Final (DD/MM/AA)");
+                            System.out.println("Fecha Final (AAAA/MM/DD)");
                             Alquileres[i].setFechaFinal(InputString());
-                            
+                            Alquileres[i].HorasAlquiler(Alquileres[i].getFechaInicio(),Alquileres[i].getFechaFinal());
+                            System.out.println(Alquileres[i].getNombreCompleto());
+                            System.out.println("Hola");
                             /*
                             Para hacer: pedir el vehiculo que se va a alquilar para obtener el precio x hora,
                             luego convertir las fechas y calcular las horas entre estas para setear el valor a pagar.
@@ -92,11 +94,9 @@ public class main {
                             
                             RegistroAux = false;
                             
-                            
-                            
-                            
                         }
                     }
+                    break;
                     
                 }
                 case 3:
@@ -114,6 +114,7 @@ public class main {
                             Seguros[i].setDescripcionSeguro(InputString());
                             i++;
                             RegistroAux = false;
+                            
                         }
                     }
                 }
