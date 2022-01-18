@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Seguro extends Alquiler {
     private String Empresa;
     private String DescripcionSeguro;
+    long Dias;
 
     public Seguro() {
     }
@@ -56,9 +57,10 @@ public class Seguro extends Alquiler {
     public void setId(int id) {
         this.id = id;
     }
-    public void DiasSeguro()
+    public void DiasSeguro(long Horas)
     {
-        
+        long DiasAux = Horas/24;
+        this.Dias = DiasAux;
     }
 
 }

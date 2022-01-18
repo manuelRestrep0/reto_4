@@ -8,9 +8,10 @@ public class main {
         Menú de la aplicacion
         */
         boolean ejecucion = true;
-        RegistroVehiculos[] Autos = new RegistroVehiculos[20];
-        Alquiler[] Alquileres = new Alquiler[20];
-        Seguro[] Seguros = new Seguro[20];
+        int cantidad = 10;
+        RegistroVehiculos[] Autos = new RegistroVehiculos[cantidad];
+        Alquiler[] Alquileres = new Alquiler[cantidad];
+        Seguro[] Seguros = new Seguro[cantidad];
         while(ejecucion)
         {
             int opcion;
@@ -55,6 +56,7 @@ public class main {
                         else
                             i++;
                     }
+                    break;
                 }
                 case 2:
                 {
@@ -63,7 +65,7 @@ public class main {
                     boolean RegistroAux = true;
                     while(RegistroAux)
                     {
-                        if(Autos != null)
+                        if(VerificarArray(Autos)==false)
                         {
                             String[] Aux;
                             Alquileres[i] = new Alquiler();
@@ -83,8 +85,7 @@ public class main {
                             System.out.println("Fecha Final (AAAA/MM/DD)");
                             Alquileres[i].setFechaFinal(InputString());
                             Alquileres[i].HorasAlquiler(Alquileres[i].getFechaInicio(),Alquileres[i].getFechaFinal());
-                            System.out.println(Alquileres[i].getNombreCompleto());
-                            System.out.println("Hola");
+                            Alquileres[i].setValorPagar(Autos[EleccionVehiculo].getPrecioHora()*Alquileres[i].getHoras());
                             /*
                             Para hacer: pedir el vehiculo que se va a alquilar para obtener el precio x hora,
                             luego convertir las fechas y calcular las horas entre estas para setear el valor a pagar.
@@ -117,6 +118,7 @@ public class main {
                             
                         }
                     }
+                    break;
                 }
                 case 0:
                 {
@@ -163,5 +165,18 @@ public class main {
             i++;
         }
     return 0;  
+    }
+    static boolean VerificarArray(RegistroVehiculos[] Vehiculos)
+    {
+        boolean isNull = true;
+        for(int i=0;i<Vehiculos.length;i++)
+        {
+            if(Vehiculos[i]!=null)
+            {
+                isNull = false;
+                return isNull;
+            }   
+        }
+        return isNull;
     }
 }
