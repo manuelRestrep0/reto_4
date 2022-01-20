@@ -1,10 +1,5 @@
 package com.mycompany.reto_4_juanmanuelrestrepo;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
-public class Seguro extends Alquiler {
+public class Seguro {
     private String Empresa;
     private String DescripcionSeguro;
     long Dias;
@@ -28,35 +23,10 @@ public class Seguro extends Alquiler {
         this.DescripcionSeguro = DescripcionSeguro;
     }
 
-    @Override
-    public String getFechaInicio() {
-        return FechaInicio;
+    public long getDias() {
+        return Dias;
     }
 
-    @Override
-    public void setFechaInicio(String FechaInicio) {
-        this.FechaInicio = FechaInicio;
-    }
-
-    @Override
-    public String getFechaFinal() {
-        return FechaFinal;
-    }
-
-    @Override
-    public void setFechaFinal(String FechaFinal) {
-        this.FechaFinal = FechaFinal;
-    }
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
     public void DiasSeguro(long Horas)
     {
         long DiasAux = Horas/24;

@@ -1,4 +1,3 @@
-
 package com.mycompany.reto_4_juanmanuelrestrepo;
 public class RegistroVehiculos {
     
@@ -17,7 +16,7 @@ public class RegistroVehiculos {
         this.id = id;
     }
 
-    public RegistroVehiculos(int id, String Placa, String Descripcion_Vehiculo, String Tipo_Vehiculo, String Modelo, float AnioModelo, float PrecioHora, String EstadoVehiculo) {
+    public RegistroVehiculos(int id, String Placa, String Descripcion_Vehiculo, String Tipo_Vehiculo, String Modelo, float AnioModelo, float PrecioHora) {
         this.id = id;
         this.Placa = Placa;
         this.Descripcion_Vehiculo = Descripcion_Vehiculo;
@@ -25,7 +24,6 @@ public class RegistroVehiculos {
         this.Modelo = Modelo;
         this.AnioModelo = AnioModelo;
         this.PrecioHora = PrecioHora;
-        this.EstadoVehiculo = EstadoVehiculo;
     }
     
     public String getEstadoVehiculo() {

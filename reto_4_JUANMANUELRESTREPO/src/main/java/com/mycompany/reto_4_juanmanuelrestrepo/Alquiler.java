@@ -3,7 +3,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class Alquiler extends RegistroVehiculos {
+public class Alquiler {
     private String tipoDocumento;
     private String NumeroDocumento;
     private String NombreCompleto;
@@ -32,32 +32,12 @@ public class Alquiler extends RegistroVehiculos {
         this.NumeroDocumento = NumeroDocumento;
     }
 
-    public long getHoras() {
-        return Horas;
-    }
-
     public String getNombreCompleto() {
         return NombreCompleto;
     }
 
     public void setNombreCompleto(String NombreCompleto) {
         this.NombreCompleto = NombreCompleto;
-    }
-
-    public String getFechaInicio() {
-        return FechaInicio;
-    }
-
-    public void setFechaInicio(String FechaInicio) {
-        this.FechaInicio = FechaInicio;
-    }
-
-    public String getFechaFinal() {
-        return FechaFinal;
-    }
-
-    public void setFechaFinal(String FechaFinal) {
-        this.FechaFinal = FechaFinal;
     }
 
     public double getValorPagar() {
@@ -76,16 +56,27 @@ public class Alquiler extends RegistroVehiculos {
         this.DescripcionUso = DescripcionUso;
     }
 
-    @Override
-    public int getId() {
-        return id;
+    public long getHoras() {
+        return Horas;
     }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
+    public String getFechaInicio() {
+        return FechaInicio;
     }
-    
+
+    public void setFechaInicio(String FechaInicio) {
+        this.FechaInicio = FechaInicio;
+    }
+
+    public String getFechaFinal() {
+        return FechaFinal;
+    }
+
+    public void setFechaFinal(String FechaFinal) {
+        this.FechaFinal = FechaFinal;
+    }
+
+
     public void HorasAlquiler(String FechaInicial, String FechaFinal)
     {
         String[] FechaAux = FechaInicial.split("/");

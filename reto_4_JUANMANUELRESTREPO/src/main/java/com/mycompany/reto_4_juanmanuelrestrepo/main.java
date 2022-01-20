@@ -1,17 +1,22 @@
 package com.mycompany.reto_4_juanmanuelrestrepo;
-import java.util.HashSet;
 import java.util.Scanner;
 public class main {
     public static void main(String[] args)
     {
         /*
         Menú de la aplicacion
-        */
+        */      
         boolean ejecucion = true;
         int cantidad = 10;
+        int EleccionVehiculo=0;
+        
+        //List<RegistroVehiculos> Autos = new ArrayList<>();
         RegistroVehiculos[] Autos = new RegistroVehiculos[cantidad];
         Alquiler[] Alquileres = new Alquiler[cantidad];
         Seguro[] Seguros = new Seguro[cantidad];
+        Autos[0] = new RegistroVehiculos(1,"ABC123","Vehiculo para 5 personas de tipo automovil","Automovil","Renault Logan",2016,70000);
+        Autos[1] = new RegistroVehiculos(2,"DEF123","Camioneta offroad para viajar","Camioneta","Ford Ranger",2020,200000);
+        Autos[2] = new RegistroVehiculos(3,"GHI123","Vehiculo electrico tipo automovil","Automovil","Tesla S",2021,340000);
         while(ejecucion)
         {
             int opcion;
@@ -21,46 +26,57 @@ public class main {
             switch(opcion){
                 case 1:
                 {
-                    /*
-                    NOTA: crear menu para visualizar los vehiculos.
-                    */
-                    int i=0;
-                    boolean RegistroAux=true;
-                    while(RegistroAux)
+                    System.out.println("1) Elegir un vehiculo ya registrado. \n 2)Registrar un vehiculo");
+                    input = new Scanner(System.in);
+                    if(input.nextInt() == 1)
                     {
-                        if(Autos[i]==null)
+                        EleccionVehiculo = ElegirVehiculo(Autos);
+                        break;
+                    }
+                    if(input.nextInt() == 2)
+                    {
+                        int i=0;
+                        boolean RegistroAux=true;
+                        while(RegistroAux)
                         {
+                            if(Autos[i]==null)
+                            {
                             /*
                             NOTA: preguntar si aplica placa.
                             */
-                            Autos[i] = new RegistroVehiculos();
-                            Autos[i].setId(i+1);
-                            System.out.println("Ingrese el tipo de vehiculo (Auto, Moto, Camion, etc):");
-                            Autos[i].setTipo_Vehiculo(InputString());
-                            System.out.println("Ingrese el modelo del vehiculo:");
-                            Autos[i].setModelo(InputString());
-                            System.out.println("Ingrese el anio del modelo:");
-                            Autos[i].setAnioModelo(InputNumber());
-                            System.out.println("Ingrese la placa del vehiculo:");
-                            Autos[i].setPlaca(InputString());
-                            System.out.println("Ingrese una breve descripcion del vehiculo:");
-                            Autos[i].setDescripcion_Vehiculo(InputString());
-                            System.out.println("Ingrese el precio por hora del vehiculo:");
-                            Autos[i].setPrecioHora(InputNumber());
-                            RegistroAux=false;
-                        }
-                        if(i==Autos.length)
-                        {
-                            
-                        }
-                        else
-                            i++;
+                                System.out.println(i);
+                                Autos[i] = new RegistroVehiculos();
+                                Autos[i].setId(i+1);
+                                System.out.println("Ingrese el tipo de vehiculo (Auto, Moto, Camion, etc):");
+                                Autos[i].setTipo_Vehiculo(InputString());
+                                System.out.println("Ingrese el modelo del vehiculo:");
+                                Autos[i].setModelo(InputString());
+                                System.out.println("Ingrese el anio del modelo:");
+                                Autos[i].setAnioModelo(InputNumber());
+                                System.out.println("Ingrese la placa del vehiculo:");
+                                Autos[i].setPlaca(InputString());
+                                System.out.println("Ingrese una breve descripcion del vehiculo:");
+                                Autos[i].setDescripcion_Vehiculo(InputString());
+                                System.out.println("Ingrese el precio por hora del vehiculo:");
+                                Autos[i].setPrecioHora(InputNumber());
+                                RegistroAux=false;
+                            }
+                            if(i==Autos.length)
+                            {
+                                break;
+                            }
+                            else
+                                i++;
+                            }
                     }
                     break;
                 }
                 case 2:
                 {
-                    int EleccionVehiculo = ElegirVehiculo(Autos);
+                    if(EleccionVehiculo == 0)
+                    {
+                        EleccionVehiculo = ElegirVehiculo(Autos);
+                    }
                     int i = 0;
                     boolean RegistroAux = true;
                     while(RegistroAux)
@@ -169,10 +185,8 @@ public class main {
     static boolean VerificarArray(RegistroVehiculos[] Vehiculos)
     {
         boolean isNull = true;
-        for(int i=0;i<Vehiculos.length;i++)
-        {
-            if(Vehiculos[i]!=null)
-            {
+        for (RegistroVehiculos Vehiculo : Vehiculos) {
+            if (Vehiculo != null) {
                 isNull = false;
                 return isNull;
             }   
