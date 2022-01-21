@@ -16,6 +16,16 @@ public class Alquiler {
     public Alquiler() {
     }
 
+    public Alquiler(String tipoDocumento, String NumeroDocumento, String NombreCompleto, String FechaInicio, String FechaFinal, double ValorPagar, String DescripcionUso) {
+        this.tipoDocumento = tipoDocumento;
+        this.NumeroDocumento = NumeroDocumento;
+        this.NombreCompleto = NombreCompleto;
+        this.FechaInicio = FechaInicio;
+        this.FechaFinal = FechaFinal;
+        this.ValorPagar = ValorPagar;
+        this.DescripcionUso = DescripcionUso;
+    }
+
     public String getTipoDocumento() {
         return tipoDocumento;
     }

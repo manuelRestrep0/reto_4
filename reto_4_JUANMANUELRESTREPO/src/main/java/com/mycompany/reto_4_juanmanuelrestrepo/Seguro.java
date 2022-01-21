@@ -7,6 +7,11 @@ public class Seguro {
     public Seguro() {
     }
 
+    public Seguro(String Empresa, String DescripcionSeguro) {
+        this.Empresa = Empresa;
+        this.DescripcionSeguro = DescripcionSeguro;
+    }
+
     public String getEmpresa() {
         return Empresa;
     }
